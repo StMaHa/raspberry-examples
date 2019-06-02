@@ -1,4 +1,6 @@
 // header file for lcd.c
+#ifndef LCD_H
+#define LCD_H
 
 // Define some I2C device parameters
 #define I2C_ADDR   0x27         // I2C device address
@@ -69,13 +71,14 @@
 // functions
 int i2c_setup(const int address);
 
-void lcd_init(void);
-void lcd_access(int bits, int mode);
-void lcd_write_line(int line, const char *s);
-void lcd_clear(void);
-int lcd_i2c_read (int fd, int reg);
+void lcd_init(int fd_lcd);
+void lcd_access(int fd_lcd, int cmd, int mode);
+void lcd_write_line(int fd_lcd, int line, const char *text);
+void lcd_clear(int fd_lcd);
+int  lcd_i2c_access(int fd_lcd, int cmd);
 
-void delay_microseconds (unsigned int howLong);
-void delay (unsigned int howLong);
+void delay_microseconds (unsigned int time_to_wait);
+void delay (unsigned int time_to_wait);
 
 
+#endif /* LCD_H */
