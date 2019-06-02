@@ -9,11 +9,8 @@
 
 #define I2C_SMBUS_READ       1
 #define I2C_SMBUS_WRITE      0
-
 #define I2C_SMBUS_BYTE_DATA  2
-
 #define I2C_SMBUS_BLOCK_MAX 32      // As specified in SMBus standard
-#define I2C_SMBUS_I2C_BLOCK_MAX 32  // Not specified but we use same structure
 
 // LCD command register addresses
 #define LCD_CLEARDISPLAY   0x01
@@ -76,9 +73,5 @@ void lcd_access(int fd_lcd, int cmd, int mode);
 void lcd_write_line(int fd_lcd, int line, const char *text);
 void lcd_clear(int fd_lcd);
 int  lcd_i2c_access(int fd_lcd, int cmd);
-
-void delay_microseconds (unsigned int time_to_wait);
-void delay (unsigned int time_to_wait);
-
 
 #endif /* LCD_H */

@@ -1,6 +1,7 @@
 #include "lcd.h"
 #include <stdio.h>
 #include <time.h>
+#include <unistd.h>
 
 
 int main()   {
@@ -21,7 +22,7 @@ int main()   {
         //lcd_clear(fd_lcd);
         lcd_write_line(fd_lcd, 1, line1);
         lcd_write_line(fd_lcd, 2, line2);
-        delay(1000);
+        sleep(1);
     }
     return 0;
 }

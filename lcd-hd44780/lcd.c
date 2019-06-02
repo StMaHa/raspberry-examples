@@ -7,6 +7,31 @@
 #include <linux/i2c.h>
 
 /*
+ * Delay program flow for micro seconds
+ */
+void delay_microseconds(unsigned int time) {
+    unsigned int micro_seconds = time % 1000000;
+    unsigned int seconds = time / 1000000;
+
+    if (time == 0)
+        return;
+    else if (time < 100) {
+        struct timeval time_now, time_long, time_end;
+        gettimeofday (&time_now, NULL);
+        time_long.tv_sec  = seconds;
+        time_long.tv_usec = micro_seconds;
+        timeradd (&time_now, &time_long, &time_end);
+        while (timercmp (&time_now, &time_end, <))
+            gettimeofday (&time_now, NULL);
+    } else {
+        struct timespec delay;
+        delay.tv_sec  = seconds;
+        delay.tv_nsec = (long)(micro_seconds * 1000L);
+        nanosleep (&delay, NULL);
+    }
+}
+
+/*
  * Clear lcd display
  */
 void lcd_clear(int fd_lcd) {
@@ -99,41 +124,5 @@ int i2c_setup(const int address) {
     if (ioctl (fd_lcd, I2C_SLAVE, address) < 0)
         return -1;
     return fd_lcd;
-}
-
-/*
- * Delay program flow for seconds
- */
-void delay(unsigned int time) {
-    struct timespec delay, dummy;
-
-    delay.tv_sec  = (time_t)(time / 1000);
-    delay.tv_nsec = (long)(time % 1000) * 1000000;
-    nanosleep(&delay, &dummy);
-}
-
-/*
- * Delay program flow for micro seconds
- */
-void delay_microseconds(unsigned int time) {
-    unsigned int micro_seconds = time % 1000000;
-    unsigned int seconds = time / 1000000;
-
-    if (time == 0)
-        return;
-    else if (time < 100) {
-        struct timeval time_now, time_long, time_end;
-        gettimeofday (&time_now, NULL);
-        time_long.tv_sec  = seconds;
-        time_long.tv_usec = micro_seconds;
-        timeradd (&time_now, &time_long, &time_end);
-        while (timercmp (&time_now, &time_end, <))
-            gettimeofday (&time_now, NULL);
-    } else {
-        struct timespec delay;
-        delay.tv_sec  = seconds;
-        delay.tv_nsec = (long)(micro_seconds * 1000L);
-        nanosleep (&delay, NULL);
-    }
 }
 
