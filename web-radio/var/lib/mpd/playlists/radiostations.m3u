@@ -1,0 +1,25 @@
+#EXTM3U
+
+#EXTINF:1, Bayern 1 Schwaben
+http://br-br1-schwaben.cast.addradio.de/br/br1/schwaben/mp3/128/stream.mp3
+
+#EXTINF:2, B5 Aktuell
+http://br-b5aktuell-live.cast.addradio.de/br/b5aktuell/live/mp3/128/stream.mp3
+
+#EXTINF:3, Bayern 3
+http://br-br3-live.cast.addradio.de/br/br3/live/mp3/128/stream.mp3
+
+#EXTINF:4, Antenne Bayern 80er
+http://mp3channels.webradio.antenne.de:80/80er-kulthits
+
+#EXTINF:5, Rock Antenne
+http://mp3channels.webradio.antenne.de:80/rockantenne-deutschland
+
+#EXTINF:6, RSH Live
+http://streams.rsh.de/rsh-live/mp3-192/mediaplayer
+
+#EXTINF:7, RSH 80er
+http://streams.rsh.de/rsh-80er/mp3-192/mediaplayer
+
+#EXTINF:8, BBC London
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_lrldn_mf_p?s=1560085818&e=1560100218&h=68793cf57192c56360b91fdc127c9d3f
