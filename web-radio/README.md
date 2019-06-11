@@ -1,5 +1,5 @@
-Prepare
-=======
+# Example to build a Web-Radio with Raspberry Pi
+# Prepare
 ```
 $ sudo apt install mpc mpd  
 $ sudo apt install libmpdclient-dev  
@@ -28,7 +28,11 @@ ctl.!default {
 }
 ```
 
-Build
-=====
-
+# How to build
+```
 gcc webradio.c -o webradio -lmpdclient
+```
+
+# LICENSE
+
+See the [LICENSE](../LICENSE.md) file for license rights and limitations (MIT).
