@@ -1,4 +1,4 @@
-# Example to build a Web-Radio with Raspberry Pi
+# Build a Web-Radio with Raspberry Pi
 # Prepare
 ```
 $ sudo apt install mpc mpd  
