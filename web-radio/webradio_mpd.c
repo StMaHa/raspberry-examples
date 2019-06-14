@@ -17,7 +17,7 @@
 
 void main() {
     struct mpd_connection *mpd;
-    struct mpd_song *song;
+    struct mpd_song *station;
 
     mpd = mpd_connection_new(NULL, 0, 30000);  // default settings
 
@@ -26,11 +26,11 @@ void main() {
 
     // Get information from radio station
     mpd_send_current_song(mpd);
-    if ((song = mpd_recv_song(mpd)) != NULL) {
-        printf("uri  : %s\n", mpd_song_get_uri(song));
-        printf("title: %s\n", mpd_song_get_tag(song, MPD_TAG_TITLE, 0));
-        printf("name : %s\n", mpd_song_get_tag(song, MPD_TAG_NAME, 0));
-	printf("pos  : %u\n", mpd_song_get_pos(song));
-        mpd_song_free(song);
+    if ((station = mpd_recv_song(mpd)) != NULL) {
+        printf("uri  : %s\n", mpd_song_get_uri(station));
+        printf("title: %s\n", mpd_song_get_tag(station, MPD_TAG_TITLE, 0));
+        printf("name : %s\n", mpd_song_get_tag(station, MPD_TAG_NAME, 0));
+	printf("pos  : %u\n", mpd_song_get_pos(station));
+        mpd_song_free(station);
     }
 }
