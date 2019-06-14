@@ -35,7 +35,7 @@ gcc webradio_mpd.c -o webradio -lmpdclient
 ```
 Webradio using direct calls of mpc client
 ```
-gcc webradio_mpc.c -o webradio -lmpdclient
+gcc webradio_mpc.c mpc_command.c -o webradio
 ```
 # LICENSE
 
