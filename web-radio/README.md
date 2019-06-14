@@ -29,7 +29,7 @@ ctl.!default {
 ```
 
 # How to build
-Webradio using API of mpd
+Simple example of how-to create a webradio using API of mpd
 ```
 gcc webradio_mpd.c -o webradio -lmpdclient
 ```
