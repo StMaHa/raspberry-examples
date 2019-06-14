@@ -1,6 +1,3 @@
-// sudo apt install mpc mpd
-// sudo apt install libmpdclient-dev
-
 #include <mpd/client.h>
 #include <mpd/status.h>
 #include <mpd/entity.h>
