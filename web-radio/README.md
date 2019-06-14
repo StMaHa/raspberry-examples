@@ -29,10 +29,14 @@ ctl.!default {
 ```
 
 # How to build
+Webradio using API of mpd
 ```
-gcc webradio.c -o webradio -lmpdclient
+gcc webradio_mpd.c -o webradio -lmpdclient
 ```
-
+Webradio using direct calls of mpc client
+```
+gcc webradio_mpc.c -o webradio -lmpdclient
+```
 # LICENSE
 
 See the [LICENSE](../LICENSE.md) file for license rights and limitations (MIT).
