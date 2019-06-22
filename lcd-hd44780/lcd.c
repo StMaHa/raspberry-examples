@@ -71,7 +71,7 @@ void lcd_access(int fd_lcd, int cmd, int mode)   {
         // clocks EN to latch command
         lcd_i2c_access(fd_lcd, (nibbles[i] | LCD_ENABLE | LCD_BACKLIGHT));
         delay_microseconds(500);
-        lcd_i2c_access(fd_lcd, (nibbles[i] & ~LCD_ENABLE | LCD_BACKLIGHT));
+        lcd_i2c_access(fd_lcd, ((nibbles[i] & ~LCD_ENABLE) | LCD_BACKLIGHT));
         delay_microseconds(1000);
     }
 }
