@@ -82,11 +82,11 @@ if __name__ == '__main__':
                     # eine 1/2 Sekunde warten
                     sleep(0.5)
                     # Waehle zufaellig eine Drehrichtung
-                    if choice([0, 1]):
+                    #if choice([0, 1]):   # +++ 4) +++ einkommentieren
                         # Robo dreht mit 1/2 Leistung in die eine Richtung
                         # +++ 4) +++
 
-                    else:
+                    #else:   # +++ 4) +++ einkommentieren
                         # Robo dreht mit 1/2 Leistung in die andere Richtung
                         # +++ 4) +++
 
@@ -97,9 +97,10 @@ if __name__ == '__main__':
 
                     # eine 1/2 Sekunde warten
                     sleep(0.5)
-                else:
+                #else:   # +++ 3) +++ einkommentieren
                     # fahre Robo mit 1/2 Leistung vorwaerts
                     # +++ 3) +++
+
             else:
                 # wenn Robo haelt
                 # alle Motoren stop
