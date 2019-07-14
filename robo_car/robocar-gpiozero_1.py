@@ -24,14 +24,14 @@ run_status = False
 # Callback-Funktion zum aendern des Roboterstatus (start/stop)
 # Ausgeloest durch einen einfachen Tastendruck
 def start_stop_robo():
-    global exit_status
+    global run_status
     # Status wechseln, um das Robo-Programm zu beenden
     # +++ 2) +++
 
 # Callback-Funktion zum Beenden des Robo-Programms
 # Ausgeloest durch einen langen Tastendruck
 def deactivate_robo():
-    global run_status
+    global exit_status
     # Status setzen, um den Robo anzuhalten oder zu starten
     # +++ 2) +++
 
