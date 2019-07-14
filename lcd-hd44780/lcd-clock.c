@@ -3,11 +3,12 @@
 #include <time.h>
 #include <unistd.h>
 
+#define LCD_LINE_LENGTH  LCD_1602_LINE_LENGTH
 
 int main()   {
     int fd_lcd; 
-    char line1[16], line2[16];
-    char days[][16] = { "Son", "Mon", "Die", "Mit", "Don", "Fri", "Sam" };
+    char line1[LCD_LINE_LENGTH], line2[LCD_LINE_LENGTH];
+    char days[7][3] = { "Son", "Mon", "Die", "Mit", "Don", "Fri", "Sam" };
 
     fd_lcd = i2c_setup(I2C_ADDR);
     lcd_init(fd_lcd); // setup LCD
@@ -17,7 +18,7 @@ int main()   {
         struct  tm tm = *localtime(&T);
 
         sprintf(line1, "    %02d:%02d:%02d",tm.tm_hour, tm.tm_min, tm.tm_sec);
-        sprintf(line2, " %03s %02d.%02d.%04d",days[tm.tm_wday], tm.tm_mday, tm.tm_mon+1, tm.tm_year+1900);
+        sprintf(line2, " %3s %02d.%02d.%04d",days[tm.tm_wday], tm.tm_mday, tm.tm_mon+1, tm.tm_year+1900);
 
         //lcd_clear(fd_lcd);
         lcd_write_line(fd_lcd, 1, line1);

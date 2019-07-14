@@ -2,6 +2,12 @@
 #ifndef LCD_H
 #define LCD_H
 
+// Define some LCD device parameters
+#define LCD_1602_LINE_LENGTH  16
+#define LCD_1602_LINE_COUNT    2
+#define LCD_2004_LINE_LENGTH  20
+#define LCD_2004_LINE_COUNT    4
+
 // Define some I2C device parameters
 #define I2C_ADDR   0x27         // I2C device address
 #define I2C_SLAVE  0x0703

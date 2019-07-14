@@ -39,4 +39,4 @@ gcc webradio_mpc.c mpc_command.c -o webradio
 ```
 # LICENSE
 
-See the [LICENSE](../LICENSE.md) file for license rights and limitations (MIT).
+See the [LICENSE](../LICENSE.md) file for license rights and limitations.
