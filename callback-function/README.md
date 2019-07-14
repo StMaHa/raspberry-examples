@@ -1,12 +1,13 @@
 # Example for callback functions
 
 # Python
+Example uses python library *gpiozero*.\
 Python script might use daemon of pigpio, therefore start daemon pigpiod:\
 (Enable daemon pigpiod to start automatically at system start.)
 ```
 $ sudo systemctl start pigpiod
 $ sudo systemctl enable pigpiod
-$ python3 distance-sensor.py
+$ python3 led-callback.py
 ```
 
 # C
