@@ -4,7 +4,7 @@
 ## motor_pwm.py
 Example uses python library *gpiozero*.\
 Python script uses daemon of *pigpio*, therefore start daemon *pigpiod*:\
-(Enable daemon *pigpiod* to start automatically at system start.)\
+(Enable daemon *pigpiod* to start automatically at system start.)
 ```
 $ sudo systemctl start pigpiod
 $ sudo systemctl enable pigpiod

@@ -1,8 +1,8 @@
 # Example for callback functions
 
 # Python
-Python script might use daemon of pigpio, therefore start daemon pigpiod: 
-(Enable daemon pigpiod to start automatically at system start.) 
+Python script might use daemon of pigpio, therefore start daemon pigpiod:\
+(Enable daemon pigpiod to start automatically at system start.)
 ```
 $ sudo systemctl start pigpiod
 $ sudo systemctl enable pigpiod
