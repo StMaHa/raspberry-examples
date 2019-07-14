@@ -115,7 +115,7 @@ if __name__ == '__main__':
     # Fangen eines Fehlers/Signals
     except KeyboardInterrupt:
         print("Programm abgebrochen.")
-    # Dieser Block wird immer ausgeführt: zum Schluss muss man aufraeumen
+    # Dieser Block wird immer ausgefuehrt: zum Schluss muss man aufraeumen
     finally:
         # LED aus
         led.off()
