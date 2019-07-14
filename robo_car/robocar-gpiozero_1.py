@@ -24,12 +24,14 @@ run_status = False
 # Callback-Funktion zum aendern des Roboterstatus (start/stop)
 # Ausgeloest durch einen einfachen Tastendruck
 def start_stop_robo():
+    global exit_status
     # Status wechseln, um das Robo-Programm zu beenden
     # +++ 2) +++
 
 # Callback-Funktion zum Beenden des Robo-Programms
 # Ausgeloest durch einen langen Tastendruck
 def deactivate_robo():
+    global run_status
     # Status setzen, um den Robo anzuhalten oder zu starten
     # +++ 2) +++
 
@@ -43,12 +45,12 @@ if __name__ == '__main__':
     # +++ 3) +++
 
     # Erzeugen einer Instanz der Distanzsensor-Klasse
-	# +++ 1) +++
+    # +++ 1) +++
 
     # Erzeugen einer Instanz der Button-Klasse
     # aktivieren des Pull-up Widerstands, definieren des Haltezeit und zuweisen der Pin-Factory
     # +++ 2) +++
-    
+
     # Erzeugen einer Instanz der LED-Klasse, zuweisen der Pin-Factory
     # +++ 2) +++
 
@@ -56,7 +58,7 @@ if __name__ == '__main__':
     # +++ 2) +++
     # Der Button-Instanz die Callback-Funktion fuer langen Tastendruck zuweisen
     # +++ 2) +++
-    
+
     # Try-Catch-Block
     try:
         # Schleife so lange durchlaufen bis das Programm beendet wird (langer Tastendruck)
@@ -65,14 +67,14 @@ if __name__ == '__main__':
             if run_status:
                 # Schreibe Sensormesswert (cm) auf die Konsole (kann spaeter wieder auskommentiert werden)
                 # +++ 1) +++
-            
+
                 # wenn Robo faehrt
                 # LED dauerhaft einschalten
                 # +++ 2) +++
-                
+
                 # Ist der Sensormesswert (cm) kleiner 40 cm?
-            	# +++ 4) +++
-				distance_cm = 100  # messe Entfernung
+                # +++ 4) +++
+                distance_cm = 100  # messe Entfernung
                 if distance_cm < 40:
                     # alle Motoren stop
                     # +++ 4) +++
@@ -102,11 +104,11 @@ if __name__ == '__main__':
                 # wenn Robo haelt
                 # alle Motoren stop
                 # +++ 3) +++
-                
+
                 # LED wechselt bei jedem Schleifen druchlauf den Zustand, sie blinkt
                 # LED wechselt ihren Zustand
                 # +++ 2) +++
-                
+
                 # eine 1/2 Sekunde warten
                 sleep(0.5)
     # Fangen eines Fehlers/Signals
