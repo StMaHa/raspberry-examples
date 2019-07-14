@@ -1,4 +1,5 @@
 from gpiozero import DistanceSensor
+from gpiozero.pins.pigpio import PiGPIOFactory
 from time import sleep
 
 # GPIOs des Abstandssensors
