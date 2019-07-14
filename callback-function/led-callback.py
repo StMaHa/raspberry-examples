@@ -17,7 +17,7 @@ def stop_function():   # Callback Funktion zum Programm beenden
 
 def led_function():     # Callback Funktion für die LED (blinken/leuchten)
      global led_blink
-     led_blink = True
+     led_blink = not led_blink
 
 my_factory = PiGPIOFactory()
 
@@ -28,10 +28,15 @@ schalter = Button(pin_button, pull_up = True, hold_time = 2, pin_factory = my_fa
 schalter.when_pressed = led_function
 schalter.when_held = stop_function
 
-# Hauptschleife
-while status:
-    if led_blink:
-        led.toggle()
-        sleep(1)
-    else:
-        led.on()
+# Try-Catch-Block
+try:
+    # Hauptschleife
+    while status:
+        if led_blink:
+            led.toggle()
+            sleep(1)
+        else:
+            led.on
+# Fangen eines Fehlers/Signals
+except KeyboardInterrupt:
+    print("Programm abgebrochen.")
