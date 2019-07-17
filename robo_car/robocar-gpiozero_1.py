@@ -1,3 +1,17 @@
+# Aufgaben
+#
+# +++ 1) +++
+# Messen mit einem Ultraschallentfernungssensor (HC-SR04).
+#   Hilfe? Suchen im Internet: HC-RS04 gpiozero
+# +++ 2) +++
+# Ansteuerung einer LED mit Taster. (LED leuchtet -> Robo fährt, LED blinkt -> Robo im Stand-By)
+#   Hilfe? Suchen im Internet: LED gpiozero, BUTTON gpiozero
+# +++ 3) +++
+# Ansteuerung der Motoren
+#   Hilfe? Suchen im Internet: MOTOR gpiozero
+# +++ 4) +++
+# Ansteuerung der Motoren in Abhängigkeit der Entfernung
+
 # Bibliotheken und Klassen
 from gpiozero import LED, Button, DistanceSensor, Motor
 from gpiozero.pins.pigpio import PiGPIOFactory
@@ -63,11 +77,11 @@ if __name__ == '__main__':
     try:
         # Schleife so lange durchlaufen bis das Programm beendet wird (langer Tastendruck)
         while not exit_status:
+            # Schreibe Sensormesswert (cm) auf die Konsole (kann spaeter wieder auskommentiert werden)
+            # +++ 1) +++
+
             # Wie ist der Programmstatus? Wecchseln durch Tastendruck
             if run_status:
-                # Schreibe Sensormesswert (cm) auf die Konsole (kann spaeter wieder auskommentiert werden)
-                # +++ 1) +++
-
                 # wenn Robo faehrt
                 # LED dauerhaft einschalten
                 # +++ 2) +++
