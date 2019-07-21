@@ -1,6 +1,7 @@
 # raspberry-examples
 
-Source code snippets and examples for Raspberry Pi.
+Source code snippets and examples for Raspberry Pi.\
+\
 **Download / clone the repository to your computer:**
 ```
 git clone https://github.com/StMa-Ha/raspberry-examples.git
