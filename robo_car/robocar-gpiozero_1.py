@@ -4,13 +4,13 @@
 # Messen mit einem Ultraschallentfernungssensor (HC-SR04).
 #   Hilfe? Suchen im Internet: HC-RS04 gpiozero
 # +++ 2) +++
-# Ansteuerung einer LED mit Taster. (LED leuchtet -> Robo fährt, LED blinkt -> Robo im Stand-By)
+# Ansteuerung einer LED mit Taster. (LED leuchtet -> Robo faehrt, LED blinkt -> Robo im Stand-By)
 #   Hilfe? Suchen im Internet: LED gpiozero, BUTTON gpiozero
 # +++ 3) +++
 # Ansteuerung der Motoren
 #   Hilfe? Suchen im Internet: MOTOR gpiozero
 # +++ 4) +++
-# Ansteuerung der Motoren in Abhängigkeit der Entfernung
+# Ansteuerung der Motoren in Abhaengigkeit der Entfernung
 
 # Bibliotheken und Klassen
 from gpiozero import LED, Button, DistanceSensor, Motor
