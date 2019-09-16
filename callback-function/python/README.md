@@ -10,11 +10,5 @@ $ sudo systemctl enable pigpiod
 $ python3 led-callback.py
 ```
 
-# C
-## How to build
-```
-gcc ...
-```
-
 # LICENSE
 See the [LICENSE](../LICENSE.md) file for license rights and limitations.
