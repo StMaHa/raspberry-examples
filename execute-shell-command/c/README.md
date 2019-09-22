@@ -1,4 +1,4 @@
-# Example for 4x4 keypad matrix
+# Examples how to excute shell commands within a python script
 
 # LICENSE
 
