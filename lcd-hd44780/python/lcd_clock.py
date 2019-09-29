@@ -1,9 +1,9 @@
 #!/usr/bin/python
 import time
-import lcd_i2c_lib as lcd
+import lcd_i2c_lib as LCD
 
 # Initialise display
-lcd = lcd.lcd()
+lcd = LCD.lcd()
 
 def clock():
     # Main program block
