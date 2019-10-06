@@ -13,7 +13,7 @@ The MCP3008 is connected via the SPI interface to the Raspberry Pi.
   - col1 > 0.5 * VDD
   - col2 > 0.75 * VDD
   - col3 > 1 * VDD
-- The row lines of the pin pad will be connect to analog input channels of the ADC.
+- The row lines of the pin pad will be connected to the analog input channels of the ADC.
   - row0 > ch0
   - row1 > ch1
   - row2 > ch2
@@ -22,9 +22,9 @@ The MCP3008 is connected via the SPI interface to the Raspberry Pi.
 
 | Pins | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 | ---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| KeyPad | row0 | row1 | row2 | row3 | col0 | col1 | col2 | col3 |
-| MCP3008 | ch0 | ch1 | ch2 | ch3
-| V-Devider | |||| R4-^-R3 | R3-^-R2 | R2-^-R1 | R1-^-VDD
+| **KeyPad** | row0 | row1 | row2 | row3 | col0 | col1 | col2 | col3 |
+| **MCP3008** | ch0 | ch1 | ch2 | ch3
+| **V-Devider** | |||| R4-^-R3 | R3-^-R2 | R2-^-R1 | R1-^-VDD
 |  | |||| 0.25 | 0.5 | 0.75 | 1
 
 # LICENSE
