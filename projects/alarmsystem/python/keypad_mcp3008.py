@@ -31,16 +31,16 @@ class PinPad:
         for row_digit_list in self.keypad_matrix:  # loop through rows
             if key in row_digit_list:
                 column = row_digit_list.index(key)  # get column if key exists in pin pad row
-            else:
-                row += 1  # increment for next row list,
-                continue  # if key does not exist in row list
-            row_level = self.keypad_adc_row_list[row].value
-            if debug:
-                print(key, row_level)
-            if row_level > (column + 1) * 0.2:  # if voltage level of row matches column
-                key_state = True
-                sleep(0.5)
                 break
+            row += 1  # increment for next row list,
+
+        row_level = self.keypad_adc_row_list[row].value
+        # if voltage level of row matches column
+        if row_level > ((column + 1) * 0.2) and row_level < ((column + 2) * 0.2):
+            if debug:
+                print(key, row + 1, column + 1, row_level)
+            key_state = True
+            sleep(0.5)
         return key_state
 
     # get pressed key

@@ -24,7 +24,8 @@ pir = MotionSensor(PIN_PIR)  # Initialisierung des Bewegungssensors
 # Callback Funktion zum Ausloesen des Alams
 def callback_alarm(channel):
     global is_alarm
-    if is_alarm_enabled:  # nur Alarm ausloesen, wenn Anlage aktiv
+    # nur Alarm ausloesen, wenn Anlage aktiv
+    if is_alarm_enabled:
         print("A L A R M")
         is_alarm = True
 
@@ -37,35 +38,51 @@ def verify_pin():
     while True:  # Endlosschleife, Abbruch durch erfolgreiche Pineingabe oder '*'
         lcd.lcd_write_line("Enter pin:      ", 2)
         entered_pin = pin_pad.get_pin(debug=True)  # Hole Pin von Pinpad
+        if not entered_pin:                        # Pineingabe wird abgebrochen
+            print("Pineingabe abgebrochen")
+            break
         if expected_pin == entered_pin:            # Vergleich Istpin mit Sollpin
             print("Pin ist korrekt")
             pin_verified = True                    # Pinvergelich ist erfolgreich
             break
         else:
+            lcd.lcd_write_line("Pin ist falsch!", 2)
             print("Pin ist falsch")
-        if pin_pad.is_key_pressed('*'):            # Pineingabe wird abgebrochen
-            print("Pineingabe abgebrochen")
-            break
+            time.sleep(2)
     print("Pinverifikation: ".format(str(pin_verified)))
     return(pin_verified)                           # Rueckgabe ob Pinvergleich erfolgreich war
 
 # Funktion fuer ein Menue, um die Alarmanlage ein-/auszuschalten
 def menu():
     global is_alarm_enabled
+    # Show actual state of the alarmsystem
+    lcd.lcd_clear()
+    if is_alarm_enabled:
+        lcd.lcd_write_line("  Alarm aktiv", 1)
+    else:
+        lcd.lcd_write_line("  Alarm aus", 1)
+    lcd.lcd_write_line("* > Menue", 2)
+    while True:  # Endlosschleife
+        if is_alarm:
+            break
+        if pin_pad.is_key_pressed('*'):  # druecke '*', um das Menue zu zeigen
+            break
     lcd.lcd_clear()
     lcd.lcd_write_line("1 Alarm aus", 1)
     lcd.lcd_write_line("2 Alarm ein", 2)
     while True:  # Endlosschleife, Abbruch durch erfolgreiche Menueeingabe oder '*'
+        if is_alarm:
+            break
         if pin_pad.is_key_pressed('*'):  # druecke '*', um das Menue zu verlassen
             break
-        if pin_pad.is_key_pressed('1'):	 # druecke '1', um die Alarmanlage auszuschalten
+        if pin_pad.is_key_pressed('1', debug=True):	 # druecke '1', um die Alarmanlage auszuschalten
             lcd.lcd_write_line("Alarmanlage aus", 1)
             if verify_pin():             # um auszuschalten ist eine Pin erforderlich
                 lcd.lcd_clear()
                 lcd.lcd_write_line("  Alarm aus", 1)
                 is_alarm_enabled = False
                 break
-        if pin_pad.is_key_pressed('2'):  # druecke '2', um die Alarmanlage einzuschalten
+        if pin_pad.is_key_pressed('2', debug=True):  # druecke '2', um die Alarmanlage einzuschalten
             lcd.lcd_write_line("Alarmanlage ein", 1)
             if verify_pin():             # um einzuschalten ist eine Pin erforderlich
                 lcd.lcd_clear()
@@ -73,19 +90,18 @@ def menu():
                 time.sleep(alarm_aktive_delay)
                 is_alarm_enabled = True
                 break
-    lcd.lcd_write_line("* > Menue", 2)
 
 # Funktion zur Alarmgebung
 def alarm():
     global is_alarm
     global is_alarm_enabled
     buz.on()  # Summer an
-    lcd.lcd_clear()
-    lcd.lcd_write_line("   A L A R M", 1)
-    lcd.lcd_write_line("* > ausschalten", 2)
     shell_stdout = os.popen('take_picture.sh').read()  # Erzeuge Bild (und sende Bild)
     print("Take picture: ", shell_stdout)
     while True:  # Endlosschleife, Abbruch durch erfolgreiche Pineingabe
+        lcd.lcd_clear()
+        lcd.lcd_write_line("   A L A R M", 1)
+        lcd.lcd_write_line("* > ausschalten", 2)
         while True:  # Endlosschleife, Abbruch durch '*'
             if pin_pad.is_key_pressed('*'):
                 break
@@ -98,13 +114,14 @@ def alarm():
 # Hauptfunktion
 try:
     pir.when_motion = callback_alarm
-    lcd.lcd_write_line("Alarmanlage", 1)
-    lcd.lcd_write_line("* > Menu", 2)
+    lcd.lcd_write_line("  Alarmanlage", 1)
+    lcd.lcd_write_line("    - RPi -", 2)
+    time.sleep(2)
     while True:  # Endlosschleife, Abbruch durch [Strg]+[c], Programmabbruch
         # Programm wartet auf Alarm oder Key-Pad-Eingabe
         if is_alarm:
             alarm()
-        if pin_pad.is_key_pressed('*'):
+        else:
             menu()
 except KeyboardInterrupt:
     pin_pad.close()
