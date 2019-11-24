@@ -15,6 +15,6 @@
 #  FromLineOverride=YES
 #  UseTLS=YES
 fswebcam alarm.jpg
-mpack -s subject alarm.jpg username@gmail.com
+# mpack -s "RPi ALARM" alarm.jpg username@gmail.com
 
 

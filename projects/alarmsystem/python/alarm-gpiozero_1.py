@@ -24,14 +24,20 @@ pir = MotionSensor(PIN_PIR)  # Initialisierung des Bewegungssensors
 # Callback Funktion zum Ausloesen des Alams
 def callback_alarm(channel):
     global is_alarm
-    # nur Alarm ausloesen, wenn Anlage aktiv
-    if is_alarm_enabled:
+    # nur Alarm ausloesen, wenn Anlage aktiv und Alarm noch nicht ausgeloest
+    if (not is_alarm) and is_alarm_enabled:
         print("A L A R M")
         is_alarm = True
+        buz.on()  # Summer an
+        shell_stdout = os.popen('./take_picture.sh').read()  # Erzeuge Bild (und sende Bild)
+        print("Take picture: ", shell_stdout)
+        lcd.lcd_clear()
+        lcd.lcd_write_line("   A L A R M", 1)
+        lcd.lcd_write_line("* > ausschalten", 2)
 
 # Funktion zur ueberpruefung der Pin
-#  - wenn Pin korrekt, Funktion gibt 'True' zurück
-#  - wenn abgebrochen, Funktion gibt 'False' zurück
+#  - wenn Pin korrekt, Funktion gibt 'True' zurueck
+#  - wenn abgebrochen, Funktion gibt 'False' zurueck
 def verify_pin():
     pin_verified = False
     entered_pin = ""
@@ -75,14 +81,14 @@ def menu():
             break
         if pin_pad.is_key_pressed('*'):  # druecke '*', um das Menue zu verlassen
             break
-        if pin_pad.is_key_pressed('1', debug=True):	 # druecke '1', um die Alarmanlage auszuschalten
+        if pin_pad.is_key_pressed('1'):	 # druecke '1', um die Alarmanlage auszuschalten
             lcd.lcd_write_line("Alarmanlage aus", 1)
             if verify_pin():             # um auszuschalten ist eine Pin erforderlich
                 lcd.lcd_clear()
                 lcd.lcd_write_line("  Alarm aus", 1)
                 is_alarm_enabled = False
                 break
-        if pin_pad.is_key_pressed('2', debug=True):  # druecke '2', um die Alarmanlage einzuschalten
+        if pin_pad.is_key_pressed('2'):  # druecke '2', um die Alarmanlage einzuschalten
             lcd.lcd_write_line("Alarmanlage ein", 1)
             if verify_pin():             # um einzuschalten ist eine Pin erforderlich
                 lcd.lcd_clear()
@@ -95,9 +101,6 @@ def menu():
 def alarm():
     global is_alarm
     global is_alarm_enabled
-    buz.on()  # Summer an
-    shell_stdout = os.popen('take_picture.sh').read()  # Erzeuge Bild (und sende Bild)
-    print("Take picture: ", shell_stdout)
     while True:  # Endlosschleife, Abbruch durch erfolgreiche Pineingabe
         lcd.lcd_clear()
         lcd.lcd_write_line("   A L A R M", 1)
