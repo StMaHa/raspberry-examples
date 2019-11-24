@@ -124,10 +124,11 @@ def alarm():
         lcd.lcd_write_line("   A L A R M", 1)
         lcd.lcd_write_line("* > ausschalten", 2)
         while True:  # Endlosschleife, warte auf Taste '*'
+            pass  # dummy code
             # +++ 4) +++ Beende innere Schleife, wenn '*' gedrückt wurde,
             #  um mit der Eingabe des Pins fortzusetzen
 
-
+        pass  # dummy code
         # +++ 4) +++ Beende aeussere Schleife, wenn der eingebene Pin korrekt ist
 
 
