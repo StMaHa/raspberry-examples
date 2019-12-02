@@ -1,5 +1,8 @@
 # Example for 4x4 keypad matrix
 
+## Scheme for example with ADC MCP3008
+![Keypad_MCP3008](https://github.com/StMaHa/raspberry-examples/blob/master/4x4_matrix_keypad/Keypad_MCP3008.png)
+
 # LICENSE
 
 See the [LICENSE](LICENSE.md) file for license rights and limitations.
