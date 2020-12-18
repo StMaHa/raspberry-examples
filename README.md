@@ -7,7 +7,7 @@ Source code snippets and examples for Raspberry Pi.
 
 **Download / clone the repository to your computer:**
 ```
-git clone https://github.com/StMa-Ha/raspberry-examples.git
+git clone https://github.com/StMaHa/raspberry-examples.git
 ```
 **To update already cloned repository, do the following steps:**
 ```
