@@ -15,7 +15,17 @@ cd raspberry-examples
 git fetch
 git rebase
 ````
+## GPIO pin Header
+**!!!ATTENTION!!!**  
+Allways keep in mind, that the current of the GPIO pins is limited and should not be exceeded.  
+Also the voltage of the GPIO pins is limited. The voltage of an input pin must not exceed 3.3V.  
+If a device, which needs higher voltage (e.g. 5V), should be connected to the Raspberry Pi, please use a voltage devider or a level shifter.  
+For the correct limits please have a look to the official Raspberry Pi web pages.  
+![GPIO pin header](https://github.com/StMa-Ha/raspberry-examples/blob/master/GPIO.jpg)
 
 # LICENSE
 
 See the [LICENSE](LICENSE.md) file for license rights and limitations.
+
+----
+<sup>(c) Raspberry Pi is a trademark of the Raspberry Pi Foundation.</sup>
