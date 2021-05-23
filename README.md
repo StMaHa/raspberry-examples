@@ -27,6 +27,10 @@ If a device, which needs higher voltage (e.g. 5V), should be connected to the Ra
 For the correct limits please have a look to the official Raspberry Pi web pages.  
 ![GPIO pin header](https://github.com/StMa-Ha/raspberry-examples/blob/master/GPIO.jpg)
 
+**Default GPIO 'pull' state:**  
+GPIO01 - GPIO08: HIGH  
+GPIO09 - GPIO27: LOW  
+
 ## Wiki for more information
 [HowTo](https://github.com/StMaHa/raspberry-setup/wiki)
 
