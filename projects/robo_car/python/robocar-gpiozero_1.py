@@ -19,6 +19,10 @@ from time import sleep
 from random import choice
 
 # Globale Variablen
+#Geschwindigkeit der Motoren
+speed_m1 = 0.5
+speed_m2 = 0.5
+
 # GPIOs zur Ansteuerung der Motoren
 pin_m1a = 16  # motor 1
 pin_m1b = 20  # motor 1
@@ -39,14 +43,14 @@ run_status = False
 # Ausgeloest durch einen einfachen Tastendruck
 def start_stop_robo():
     global run_status
-    # Status wechseln, um das Robo-Programm zu beenden
+    # Status setzen, um den Robo anzuhalten oder zu starten
     # +++ 2) +++
 
 # Callback-Funktion zum Beenden des Robo-Programms
 # Ausgeloest durch einen langen Tastendruck
 def deactivate_robo():
     global exit_status
-    # Status setzen, um den Robo anzuhalten oder zu starten
+    # Status wechseln, um das Robo-Programm zu beenden
     # +++ 2) +++
 
 # Hier bgeinnt das Hauptprogramm
@@ -62,7 +66,7 @@ if __name__ == '__main__':
     # +++ 1) +++
 
     # Erzeugen einer Instanz der Button-Klasse
-    # aktivieren des Pull-up Widerstands, definieren des Haltezeit und zuweisen der Pin-Factory
+    # aktivieren des Pull-up Widerstands, definieren der Haltezeit fuer langen Tastendruck
     # +++ 2) +++
 
     # Erzeugen einer Instanz der LED-Klasse, zuweisen der Pin-Factory
