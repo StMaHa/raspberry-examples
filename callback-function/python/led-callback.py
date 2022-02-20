@@ -19,12 +19,10 @@ def led_function():     # Callback Funktion für die LED (blinken/leuchten)
      global led_blink
      led_blink = not led_blink
 
-my_factory = PiGPIOFactory()
-
 # Initialisiere LED am GPIO-Pin 17
-led = LED(pin_status, pin_factory = my_factory)
+led = LED(pin_status)
 # Initialisiere Button am GPIO-Pin 25
-schalter = Button(pin_button, pull_up = True, hold_time = 2, pin_factory = my_factory)
+schalter = Button(pin_button, pull_up = True, hold_time = 2)
 schalter.when_pressed = led_function
 schalter.when_held = stop_function
 
@@ -33,10 +31,9 @@ try:
     # Hauptschleife
     while status:
         if led_blink:
-            led.toggle()
-            sleep(1)
+            led.off()
         else:
-            led.on
+            led.on()
 # Fangen eines Fehlers/Signals
 except KeyboardInterrupt:
     print("Programm abgebrochen.")
