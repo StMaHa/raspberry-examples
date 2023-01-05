@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Show preview from camera for 10 seconds and capture picture.
+# Show preview from camera for 10 seconds and capture picture by using picamera library.
 from picamera import PiCamera
 from time import sleep
 
