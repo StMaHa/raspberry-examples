@@ -1,6 +1,7 @@
 #!/bin/bash
+
 # Define GPIO pin where LED is connected
-GPIO_LED=18
+GPIO_LED=21
 
 echo "Start Blinking..."
 

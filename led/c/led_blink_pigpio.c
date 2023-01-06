@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <pigpio.h>
 
-#define GPIO_LED 18
+#define GPIO_LED 21
 
 int main() {
     if (gpioInitialise() == PI_INIT_FAILED) {
