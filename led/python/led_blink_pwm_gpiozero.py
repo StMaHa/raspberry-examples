@@ -1,3 +1,10 @@
+# Exampe with pigpio daemon as factory for gpiozero library
+#
+# ATTENTION:
+# Start pigpio daemon first:
+# sudo systemctl start pigpiod
+#
+
 from gpiozero import PWMLED
 from gpiozero.pins.pigpio import PiGPIOFactory
 from time import sleep

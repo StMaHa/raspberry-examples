@@ -1,3 +1,4 @@
+# LED blinking example using gpiozero library
 from gpiozero import LED
 from time import sleep
 

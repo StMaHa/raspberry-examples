@@ -1,13 +1,10 @@
-# Beispiel mit pigpio library
-import pigpio
-from time import sleep
+# Mein erstes Programm, das ist ein Kommentar
 
-GPIO_LED = 18
+print("Hallo Welt!")
 
-gpio = pigpio.pi()
-gpio.set_mode(GPIO_LED, pigpio.OUTPUT)
-while(True):
-    gpio.write(GPIO_LED, True)
-    sleep(0.5)
-    gpio.write(GPIO_LED, False)
-    sleep(0.5)
+name = input("Wie heisst Du? ")
+
+if name:             # if not name == "":
+	print("Hallo {}!".format(name))
+else:
+	print("Du hast keinen Namen.")
