@@ -2,7 +2,7 @@
 #
 # ATTENTION:
 # Start pigpio daemon first:
-# sudo systemctl status pigpiod
+# sudo systemctl start pigpiod
 #
 import pigpio
 from time import sleep
