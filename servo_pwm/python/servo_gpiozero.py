@@ -15,7 +15,7 @@ servo = AngularServo(18,
                      min_angle=-90,
                      max_angle=90,
                      min_pulse_width=0.0007,
-                     max_pulse_width=0.0025,
+                     max_pulse_width=0.0023,
                      pin_factory=factory)
 
 print("Start turning...")
