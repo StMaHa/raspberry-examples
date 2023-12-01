@@ -13,7 +13,7 @@ factory = PiGPIOFactory()
 #servo = Servo(18)
 servo = Servo(18,
               min_pulse_width=0.0007,
-              max_pulse_width=0.0025,
+              max_pulse_width=0.0023,
               pin_factory=factory)
 
 print("Start turning...")
