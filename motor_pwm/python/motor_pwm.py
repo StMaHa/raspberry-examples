@@ -1,4 +1,11 @@
 # motor.py verwendet den Service von ‚pigpio‘
+#
+# ATTENTION:
+# Start pigpio daemon first:
+# sudo systemctl start pigpiod
+#
+
+print("Daemon pigpiod is not supported on Raspberry Pi 5.")
 
 # Bibliotheken und Klassen
 from gpiozero import Motor

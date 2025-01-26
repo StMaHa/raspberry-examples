@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <pigpio.h>
 
+//  gcc -o led_blink_pigpio led_blink_pigpio.c -lpigpio
+
 #define GPIO_LED 21
 
 int main() {

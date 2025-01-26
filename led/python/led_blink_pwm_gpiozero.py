@@ -5,6 +5,8 @@
 # sudo systemctl start pigpiod
 #
 
+print("Daemon pigpiod is not supported on Raspberry Pi 5.")
+
 from gpiozero import PWMLED
 from gpiozero.pins.pigpio import PiGPIOFactory
 from time import sleep

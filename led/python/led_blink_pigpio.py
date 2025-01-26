@@ -4,6 +4,8 @@
 # Start pigpio daemon first:
 # sudo systemctl start pigpiod
 #
+print("Daemon pigpiod is not supported on Raspberry Pi 5.")
+
 import pigpio
 from time import sleep
 
