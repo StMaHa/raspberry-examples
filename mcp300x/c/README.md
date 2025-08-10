@@ -6,4 +6,4 @@ Prints values of all inputs in columns on screen
 gcc -o mcp3008-example mcp300x.c mcp3008-example.c
 ```
 # LICENSE
-See the [LICENSE](../LICENSE.md) file for license rights and limitations.
+See the [LICENSE](../../LICENSE.md) file for license rights and limitations.

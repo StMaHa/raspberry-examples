@@ -24,4 +24,4 @@ lcd = LCD.lcd(i2c_address=0x27, i2c_bus=1)
 ```
 
 # LICENSE
-See the [LICENSE](../LICENSE.md) file for license rights and limitations.
+See the [LICENSE](../../LICENSE.md) file for license rights and limitations.

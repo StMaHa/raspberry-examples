@@ -4,4 +4,4 @@ Examples using libraries: RPi.GPIO and gpiozero, both by polling and callback fu
 
 # LICENSE
 
-See the [LICENSE](LICENSE.md) file for license rights and limitations.
+See the [LICENSE](../../LICENSE.md) file for license rights and limitations.

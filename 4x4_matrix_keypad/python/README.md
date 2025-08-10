@@ -29,4 +29,4 @@ The MCP3008 is connected via the SPI interface to the Raspberry Pi.
 
 # LICENSE
 
-See the [LICENSE](LICENSE.md) file for license rights and limitations.
+See the [LICENSE](..\..\LICENSE.md) file for license rights and limitations.

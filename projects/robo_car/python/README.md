@@ -13,4 +13,4 @@ $ python3 motor_pwm.py
 ```
 
 # LICENSE
-See the [LICENSE](../LICENSE.md) file for license rights and limitations.
+See the [LICENSE](../../../LICENSE.md) file for license rights and limitations.

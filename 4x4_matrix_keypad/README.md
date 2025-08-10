@@ -6,4 +6,4 @@ R1 = R2 = R3 = R4 = 1kOhm
 
 # LICENSE
 
-See the [LICENSE](LICENSE.md) file for license rights and limitations.
+See the [LICENSE](..\LICENSE.md) file for license rights and limitations.
