@@ -4,7 +4,7 @@ sudo apt install python3-bme280
 '''
 # Example shows values of sensor BME280
 # - Temperature in °C
-# - Atmospheric pressure in hPa on station level (sea level might be higher)
+# - Barometric  pressure in hPa on station level (sea level might be higher)
 # - Relative humidity in %
 import bme280
 import smbus2

@@ -1,4 +1,5 @@
-# Examples for sensor BME280 to measure temperature, air humidity and pressure
+# Examples for sensor BME280 to measure temperature, relative humidity and barometric pressure on station level
+Info: Commonly used by meteorologists sea level pressure might be higher  
 
 To use the examples install the corresponding package:
 ```
