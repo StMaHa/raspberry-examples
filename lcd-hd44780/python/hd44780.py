@@ -60,7 +60,7 @@ I2C device address (execute: i2cdetect -y 1 or i2cdetect -y 0 for Pi rev.1)
 '''
 class HD44780:
     # initialises objects and lcd
-    def __init__(self, i2c_bus = 1, i2c_address = 0x27, lcd_line_count = LCD_1602_LINE_COUNT):
+    def __init__(self, i2c_bus = 1, i2c_address = 0x3f, lcd_line_count = LCD_1602_LINE_COUNT):
         if lcd_line_count == LCD_1602_LINE_COUNT:
             self.__lcd_line_length = LCD_1602_LINE_LENGTH
         elif lcd_line_count == LCD_2004_LINE_COUNT:
