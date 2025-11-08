@@ -4,9 +4,9 @@ from gpiozero.pins.pigpio import PiGPIOFactory
 from time import sleep
 
 # GPIO der Status-LED
-pin_status = 17
+pin_status = 21
 # GPIO des Tasters
-pin_button = 25
+pin_button = 16
 
 status = True
 led_blink = False
