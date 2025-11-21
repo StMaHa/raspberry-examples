@@ -1,20 +1,11 @@
-# Exampe with pigpio daemon as factory for gpiozero library
-#
-# ATTENTION:
-# Start pigpio daemon first:
-# sudo systemctl start pigpiod
-#
-
-print("Daemon pigpiod is not supported on Raspberry Pi 5.")
-
+# Beispiel mit gpiozero library
 from gpiozero import PWMLED
-from gpiozero.pins.pigpio import PiGPIOFactory
 from time import sleep
+
 
 GPIO_LED = 21
 
-factory = PiGPIOFactory()
-led = PWMLED(GPIO_LED, pin_factory = factory)
+led = PWMLED(GPIO_LED)
 
 print("Start blinking...")
 print("Press CTRL-C to stop.")

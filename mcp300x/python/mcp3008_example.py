@@ -1,3 +1,5 @@
+# MCP3008 example using own module
+
 from mcp300x import MCP3008
 from time import sleep
 

@@ -1,3 +1,5 @@
+# MCP3008 example using gpiozero module
+
 from gpiozero import MCP3008
 from time import sleep
 
