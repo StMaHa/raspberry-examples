@@ -150,7 +150,6 @@ class PWM():
         Set frequency in Hz
         '''
         if self._period_ns == 0:  # prevent rewriting period, due to a pwm-pio bug
-            print("set frequency")
             self.period_ns(int((1 / frequency) * 1000000000))  # set period in nano seconds
 
 

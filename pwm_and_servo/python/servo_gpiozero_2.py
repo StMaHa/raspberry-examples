@@ -1,11 +1,11 @@
 # Beispiel mit Servo und PiGPIOFactory aus der gpiozero library
 #
-# ATTENTION:
-# Start pigpio daemon first:
-# sudo systemctl start pigpiod
-#
-
-print("Daemon pigpiod is not supported on Raspberry Pi 5.")
+print("Daemon pigpiod is not supported on Raspberry Pi 5.\n"
+      "Daemon and Python module has been removed from Debian Trixi.\n"
+      "To install it:\n"
+      "- sudo apt update\n"
+      "- sudo apt install python3-pigpio pigpio\n"
+      "- sudo systemctl start pigpiod\n")
 
 from gpiozero.pins.pigpio import PiGPIOFactory
 from gpiozero import Servo
