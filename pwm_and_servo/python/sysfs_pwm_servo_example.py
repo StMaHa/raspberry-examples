@@ -1,4 +1,4 @@
-from syspwm import PWM, Servo
+from sysfs_pwm import PWM, Servo
 from time import sleep
 
 # dtoverlay=pwm-2chan

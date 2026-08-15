@@ -1,4 +1,4 @@
-from syspwm import PWM
+from sysfs_pwm import PWM
 from time import sleep
 
 PWM_FREQUENCY = 5000
