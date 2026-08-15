@@ -1,9 +1,9 @@
-from syspwm import SYSPWM
+from syspwm import PWM
 from time import sleep
 
 PWM_FREQUENCY = 5000
 
-pwm1 = SYSPWM(channel = 1, frequency = PWM_FREQUENCY)
+pwm1 = PWM(chip = 4, frequency = PWM_FREQUENCY)
 
 try:
     print("Increase brightness using the PWM duty cycle in percentage.")
@@ -20,3 +20,4 @@ except KeyboardInterrupt:
     print("Program aborted.")
 finally:
     pwm1.close()
+    print("Program finished.")

@@ -1,8 +1,8 @@
-from syspwm import SYSPWM, Servo
+from syspwm import PWM, Servo
 from time import sleep
 
 
-pwm0 = SYSPWM(frequency = 50)  # Period: 0.02 secods = 20ms
+pwm0 = PWM(chip=3, frequency = 50)  # Period: 0.02 secods = 20ms
 servo = None
 
 try:
@@ -22,8 +22,8 @@ try:
     pwm0.close()
     sleep(1)
     print("Adjust the servo angle.")
-    servo = Servo(frequency = 50, servo_pulse_width = 0,
-                  servo_min_pulse_width = 0.0005, servo_max_pulse_width = 0.0025,
+    servo = Servo(pwm_frequency = 50, pwm_pulse_width = 0,
+                  pwm_min_pulse_width = 0.0005, pwm_max_pulse_width = 0.0025,
                   servo_min_angle = 0, servo_max_angle = 180)
     for i in range(0, 2):
         for servo_angle in (0, 90, 180, 90):
@@ -37,3 +37,4 @@ finally:
         pwm0.close()
     if servo and pwm0.is_active():
         servo.close()
+    print("Program finished.")
