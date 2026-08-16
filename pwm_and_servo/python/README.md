@@ -11,7 +11,7 @@ To install it:
 
 The Python module sysfs_pwm.py uses sysfs to control rp1 chip, allowing the Raspberry Pi 5 to use servo motors without jitter.
 
-See the [Hardware PWM via sysfs](../README.md)
+See the [Hardware PWM for more details](../README.md)
 
 # LICENSE
 

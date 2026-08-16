@@ -4,6 +4,22 @@ To control servo motors without jitter a real time clock is required.
 The Python module gpiozero supports the use of pin factories, allowing the fast daemon pigpiod to be used.
 The pigpio library is not supported on Raspberry Pi 5 and has been removed within Raspberry Pi OS Debian Trixie.
 
+**All Raspberry Pi's support usage of device tree overlay pwm-2chan.**
+- PWM Chip 0 Channel 0 – GPIO 18 and GPIO 12
+- PWM Chip 0 Channel 1 – GPIO 19 and GPIO 13
+
+**Raspberry Pi 5 supports usage of device tree overlay pwm-pio.**
+- PWM channel 0 – GPIO 02 to GPIO 27 (all GPIO's)
+- Max. 4 PWM IO's
+- Each PWM IO is mapped to pwmchip(n) &nbsp;&nbsp;&nbsp;&nbsp; (pwmchip1 ... pwmchip4)
+
+**To ensure stability keep your system up to date:**  
+(First Raspberry Pi Trixie image might freeze the system when using pwm-pio.)
+- sudo apt update
+- sudo apt full-upgrade
+- sudo reboot
+
+
 ## Hardware PWM via sysfs
 
 ### Option 1: All Raspberry Pi's

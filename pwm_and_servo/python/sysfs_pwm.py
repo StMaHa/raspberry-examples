@@ -52,9 +52,9 @@ class PWM():
         self.frequency(frequency)
 
         if duty_cycle:
-            self.set_duty_cycle(duty_cycle)
+            self.duty_cycle(duty_cycle)
         if pulse_width:
-            self.set_pulse_width_ns(pulse_width_ns)
+            self.pulse_width(pulse_width)
 
     def _pwm_write_parameter(self, pwm_parameter, pwm_value):
         result = False
@@ -65,8 +65,9 @@ class PWM():
                     pwm_file_path = os.path.join(self._pwm_sysfs_chip_path, pwm_parameter)
                 else:
                     pwm_file_path = os.path.join(self._pwm_sysfs_channel_path, pwm_parameter)
-                with open(pwm_file_path,'w') as f:
+                with open(pwm_file_path,'w', encoding="utf-8") as f:
                     f.write(f"{pwm_value}\n")
+                sleep(0.01)  # wait for writing done, to reduce retries
                 result = True
                 break
             except:
@@ -91,6 +92,7 @@ class PWM():
         '''
         if pulse_width > self._period_ns:
             print("ERROR! Pulse width exceeds the period.")
+
         if self._pwm_chip > 0:  # prevent Pi freezing due to a pwm-pio bug
             self.off()
         self._pwm_write_parameter("duty_cycle", int(pulse_width))
@@ -153,20 +155,26 @@ class PWM():
             self.period_ns(int((1 / frequency) * 1000000000))  # set period in nano seconds
 
 
-class Servo():
+class Servo(PWM):  # inherit PWM class
     # Constructor
     def __init__(self, pwm_chip = 0, pwm_channel = 0, pwm_frequency = 50,
                  pwm_pulse_width = 0, servo_angle = None,
                  pwm_min_pulse_width = 0.001, pwm_max_pulse_width = 0.002,
                  servo_min_angle = 0, servo_max_angle = 180):
+
+        # Initialize parent class
+        super().__init__(chip = pwm_chip, channel = pwm_channel, frequency = pwm_frequency, pulse_width = pwm_pulse_width)
+
         # Only one intial value is possible
         if pwm_pulse_width and servo_angle:
             raise ValueError("Set only one of the parameter: servo_pulse_width or servo_angle")
+
         # Set class initial values
         self._pwm_min_pulse_width = pwm_min_pulse_width * 1000000000  # Pulse width in nano secods
         self._pwm_max_pulse_width = pwm_max_pulse_width * 1000000000  # Pulse width in nano secods
         self._servo_min_angle = servo_min_angle
         self._servo_max_angle = servo_max_angle
+
         # Prepare servo angle calculation (based on y = m * x + b -> pulse = m * angle + b)
         #   servo_min_pulse_width = m * servo_min_angle + b
         #   servo_max_pulse_width = m * servo_max_angle + b
@@ -174,8 +182,7 @@ class Servo():
         self._servo_pulse_per_angle = (self._pwm_max_pulse_width - self._pwm_min_pulse_width) / (self._servo_max_angle - self._servo_min_angle)
         # Calculate servo pulse offset: b = pulse2 - m * angle2
         self._servo_pulse_offset = self._pwm_max_pulse_width - self._servo_pulse_per_angle * self._servo_max_angle
-        # Initialize PWM
-        self._servo = PWM(chip = pwm_chip, channel = pwm_channel, frequency = pwm_frequency, pulse_width = pwm_pulse_width)
+
         # Set initial values
         if servo_angle:
             self.angle(servo_angle)
@@ -188,31 +195,4 @@ class Servo():
             raise ValueError("Angle is out of range. Should be between {} and {} degree.".format(self._servo_min_angle, self._servo_max_angle))
         # Calculate pulse width
         pulse_ns = self._servo_pulse_per_angle * angle + self._servo_pulse_offset  # calculate pulse width in nano secods: y = mx + b
-        self._servo._set_pulse_width_ns(pulse_ns)
-
-    def pulse_width(self, pulse_width):
-        '''
-        Adjust pulse width in seconds
-        '''
-        self._servo.pulse_width(pulse_width)
-
-    def on(self):
-        '''
-        Activate servo.
-        '''
-        return self._servo.on()
-
-    def off(self):
-        '''
-        Deactivate servo.
-        '''
-        return self._servo.off()
-
-    def is_active(self):
-        '''
-        Returns server state.
-        '''
-        return self._servo._is_active
-
-    def close(self):
-        self._servo.close()
+        self._set_pulse_width_ns(pulse_ns)

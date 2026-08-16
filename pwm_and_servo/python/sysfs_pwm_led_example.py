@@ -1,6 +1,8 @@
 from sysfs_pwm import PWM
 from time import sleep
 
+PWM_CHIP = 0
+PWM_CHANNEL = 1
 PWM_FREQUENCY = 5000
 
 # dtoverlay=pwm-2chan
@@ -10,7 +12,7 @@ PWM_FREQUENCY = 5000
 # dtoverlay=pwm-pio (Pi 5 only)
 # - chip = 1...4 depending on GPIO
 # - channel = 0
-led_pwm = PWM(chip = 0, channel = 1, frequency = PWM_FREQUENCY)
+led_pwm = PWM(chip = PWM_CHIP, channel = PWM_CHANNEL, frequency = PWM_FREQUENCY)
 
 brightness_list = (0, 1, 2, 5, 10, 15, 20, 25, 50, 75, 100)
 
